@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Checkbox } from "../../components";
+import { Select } from "../../components";
 
 export default function HomePage() {
     const [checked, setChecked] = useState(false)
@@ -10,10 +10,7 @@ export default function HomePage() {
         >
             {/* <Card /> */}
             {/* <SearchInput /> */}
-            <Checkbox
-                checked={checked}
-                onChange={() => setChecked(!checked)}
-            />
+            <Select />
         </div>
     )
 }
