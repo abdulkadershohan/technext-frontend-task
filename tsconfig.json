@@ -22,6 +22,8 @@
     "baseUrl": "./",
     "paths": {
       "@demoData/*": ["src/demo-data/*"],
+      "@components/*": ["src/components/*"],
+      
     }
   },
   "include": [
