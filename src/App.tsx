@@ -1,12 +1,11 @@
+import HomePage from "./page/home/HomePage";
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Hello World
-      </h1>
-    </div>
+    <main>
+      <HomePage />
+    </main>
   );
 }
 
