@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { Select } from "../../components";
+import Header from "src/sections/header/Header";
 
 export default function HomePage() {
-    const [checked, setChecked] = useState(false)
-    console.log('checked', checked)
+
     return (
         <div
-            className='flex items-center justify-center h-screen '
+            className="flex gap-4"
         >
-            {/* <Card /> */}
-            {/* <SearchInput /> */}
-            <Select />
+            <Header />
         </div>
     )
 }

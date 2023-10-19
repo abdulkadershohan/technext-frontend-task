@@ -16,3 +16,16 @@ export const filterByDateSelect = [
         value: 'lastYear'
     }
 ]
+
+export const selectStatusData = [
+    {
+        id: 1,
+        name: 'Failure',
+        value: 'failure'
+    },
+    {
+        id: 2,
+        name: 'Success',
+        value: 'success'
+    }
+]
