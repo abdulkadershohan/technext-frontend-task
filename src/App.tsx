@@ -3,7 +3,7 @@ import HomePage from "./page/home/HomePage";
 
 function App() {
   return (
-    <main>
+    <main className="bg-main">
       <HomePage />
     </main>
   );

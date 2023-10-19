@@ -1,12 +1,10 @@
 
 export default function HomePage() {
-    return <div
-        className="bg-red"
-    >
-        <h1
-            className="text-4xl text-center text-red-50"
-        >
-            Home Page
-        </h1>
-    </div>;
+    return (
+        <div>
+            <h1
+                className="text-text-primary text-4xl font-bold"
+            >Home Page</h1>
+        </div>
+    )
 }
