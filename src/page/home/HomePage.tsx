@@ -1,10 +1,13 @@
-
+import { home } from "src/demo-data/home"
 export default function HomePage() {
+
     return (
         <div>
             <h1
                 className="text-danger text-2xl font-bold"
-            >Home Page</h1>
+            >
+                {home.title}
+            </h1>
         </div>
     )
 }
