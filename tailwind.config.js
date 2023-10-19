@@ -19,6 +19,15 @@ module.exports = {
       "gray-800": "#343A40",
       "gray-900": "#212529",
       'primary': '#0D6EFD',
+    },
+    fontSize: {
+      sm: '0.75rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.953rem',
+      '4xl': '2.5rem',
+
     }
   },
   plugins: [],
