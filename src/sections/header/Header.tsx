@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Checkbox, SearchInput, Select } from "../../components";
-import { filterByDateSelect, selectStatusData } from '../../demo-data/filter';
-import { home } from "../../demo-data/home";
+import { Checkbox, SearchInput, Select } from "src/components";
+import { filterByDateSelect, selectStatusData } from 'src/demo-data/filter';
+import { home } from "src/demo-data/home";
 
 export default function Header() {
     const [check, setCheck] = useState(false)

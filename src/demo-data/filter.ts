@@ -1,5 +1,6 @@
+import { ISelectDate, ISelectStatus } from "src/interfaces/filter";
 
-export const filterByDateSelect = [
+export const filterByDateSelect: ISelectDate[] = [
     {
         id: 1,
         name: 'Last week',
@@ -17,7 +18,7 @@ export const filterByDateSelect = [
     }
 ]
 
-export const selectStatusData = [
+export const selectStatusData: ISelectStatus[] = [
     {
         id: 1,
         name: 'Failure',

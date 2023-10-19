@@ -1,10 +1,6 @@
-interface Props {
-    data: any[];
-    onChange: (e: any) => void;
-    placeholder: string;
-    value: string;
-}
-export default function Select({ data, onChange, placeholder, value }: Props) {
+import { ISelect } from "src/interfaces/inputSelect"
+
+export default function Select({ data, onChange, placeholder, value }: ISelect) {
     return (
         <div>
 

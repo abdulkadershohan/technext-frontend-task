@@ -1,9 +1,5 @@
-interface IHome {
-    title: string;
-    text: string;
-    footerText: string;
+import { IHome } from "src/interfaces/home";
 
-}
 export const home: IHome = {
     title: 'Spaceflight details',
     text: 'Find out the elaborate features of all the past big spaceflights.',
