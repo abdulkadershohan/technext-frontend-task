@@ -1,4 +1,5 @@
 import CardSection from "src/sections/body/CardSection";
+import Footer from "src/sections/footer/Footer";
 import Header from "src/sections/header/Header";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
         >
             <Header />
             <CardSection />
+            <Footer />
         </div>
     )
 }
