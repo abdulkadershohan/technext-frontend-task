@@ -1,18 +1,18 @@
-import image from '../assets/svg/Property1.svg'
-export default function Card() {
-    const data = {
-        id: 1,
-        image: image,
-        date: '25 March 2021',
-        title: 'Property 1',
-        text: 'Falcon 1',
-        status: 'failed',
-    }
+import moment from 'moment'
+import { ICard } from 'src/interfaces/home'
+
+
+export default function Card({ item }: ICard) {
+    const { links, mission_name, launch_date_local, rocket, launch_success } = item || {}
+    const image = links?.mission_patch_small || ''
+    const { rocket_name } = rocket || {}
+    const launch_date = moment(launch_date_local).format('DD MMMM YYYY') || ''
+
     return (
         <div
             className='flex flex-col items-center justify-center border-solid border-[1px] border-gray-400 p-8 gap-6 rounded-[8px]'
         >
-            <img src={data.image} alt="img"
+            <img src={image} alt="img"
                 className='h-[124px] w-[124px] object-cover'
             />
             <div
@@ -23,15 +23,15 @@ export default function Card() {
                 >Launch Date:
                     <span
                         className='text-gray-800'
-                    >25 March 2021</span>
+                    >{launch_date}</span>
                 </p>
                 <h1
                     className='text-gray-900 font-medium leading-[28px] text-2xl'
-                >{data.title}</h1>
+                >{mission_name}</h1>
                 <p
                     className='text-gray-700 font-normal leading-5 text-[14px]'
                 >
-                    {data.text}
+                    {rocket_name}
                 </p>
             </div>
 
@@ -42,8 +42,8 @@ export default function Card() {
                     className='text-gray-600 font-medium leading-5 text-base'
                 >Launch Status:</p>
                 <p
-                    className={`text-white font-bold leading-3 text-sm ${data.status !== 'failed' ? ' bg-danger' : 'bg-success'} rounded-[4px] px-3 py-1`}
-                >failed</p>
+                    className={`text-white font-bold leading-3 text-sm ${launch_success ? ' bg-danger' : 'bg-success'} rounded-[4px] px-3 py-1`}
+                >{launch_success ? 'failed' : "success"}</p>
             </div>
         </div>
     )
