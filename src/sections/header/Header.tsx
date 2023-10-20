@@ -1,10 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Checkbox, SearchInput, Select } from "src/components";
+import { filterSearchContext } from "src/context/filterSearchContext";
 import { filterByDateSelect, selectStatusData } from 'src/demo-data/filter';
 import { home } from "src/demo-data/home";
 
 export default function Header() {
-    const [check, setCheck] = useState(false)
+    const { check, setCheck } = React.useContext(filterSearchContext) as any
+
+    // const [check, setCheck] = useState(false)
     const [filterByDate, setFilterByDate] = useState('')
     const [filterByStatus, setFilterByStatus] = useState('')
     return (

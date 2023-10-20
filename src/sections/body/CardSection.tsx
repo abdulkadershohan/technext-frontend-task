@@ -1,31 +1,46 @@
 import React from "react";
 import { Card } from "src/components";
+import { filterSearchContext } from "src/context/filterSearchContext";
 const BASE_URL = 'https://api.spacexdata.com/v3/launches'
 export default function CardSection() {
+    const { search, check } = React.useContext(filterSearchContext) as any
+
     const [offset, setOffset] = React.useState(1)
     const [limit, setLimit] = React.useState(9)
-    const [search, setSearch] = React.useState('')
-    const [filterByDate, setFilterByDate] = React.useState('')
-    const [filterByStatus, setFilterByStatus] = React.useState('')
 
     const [data, setData] = React.useState([])
     const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
         setLoading(true)
-        fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                setLoading(false)
-            })
-    }, [offset, limit])
+        let query = `?limit=${limit}&offset=${offset}`
+        if (search !== "") {
+            query += `&rocket_name=${search}`
+        }
+        if (check) {
+            query += `&upcoming=true`
+        }
+        console.log(query)
+        try {
+            fetch(`${BASE_URL}${query}`)
+                .then(res => res.json())
+                .then(data => {
+                    setData(data)
+                    setLoading(false)
+                })
+        }
+        catch (error) {
+            console.log(error)
+            setData([])
+        }
+    }, [offset, limit, search, check])
 
     return (
         <section
             className="container mx-auto px-4 py-8"
 
         >
+            {search}
             <div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
             >
@@ -52,7 +67,7 @@ export default function CardSection() {
                         >
                             <span className="sr-only">Previous</span>
                             <svg className="w-3 h-3  text-primary " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
                             </svg>
                         </p>
                     </li>
@@ -105,7 +120,7 @@ export default function CardSection() {
                         >
                             <span className="sr-only">Next</span>
                             <svg className="w-3 h-3 text-primary " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                             </svg>
                         </p>
                     </li>
