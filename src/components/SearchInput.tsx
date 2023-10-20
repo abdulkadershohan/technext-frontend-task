@@ -7,25 +7,17 @@ export default function SearchInput() {
         e.preventDefault()
         setSearch(searchText)
     }
-
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
-
                 <div className="relative mb-4 flex w-full ">
                     <input
                         //type="search"
-                        className="relative m-0 -mr-0.5 block  rounded-l border border-solid border-gray-400 bg-transparent 
-                     px-3 py-[0.25rem] text-base font-normal leading-[1.6] 
-                      focus:outline-none  focus:border-primary
-                      w-full 
-                      "
+                        className="relative m-0 -mr-0.5 block  rounded-l border border-solid border-gray-400 bg-transparent px-3 py-[0.25rem] text-base font-normal leading-[1.6] focus:outline-none focus:border-primary w-full"
                         placeholder="Search..."
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
-
                     <button
                         type="submit"
                         className="relative z-[2] flex items-center rounded-r bg-primary px-3 py-2.5 text-white  hover:shadow-lg "

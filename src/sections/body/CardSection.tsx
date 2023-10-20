@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "src/components";
+import { BASE_URL } from "src/constants/baseUrl";
 import { filterSearchContext } from "src/context/filterSearchContext";
-const BASE_URL = 'https://api.spacexdata.com/v3/launches'
 export default function CardSection() {
     const { search, check, filterByStatus } = React.useContext(filterSearchContext) as any
 
@@ -39,25 +39,25 @@ export default function CardSection() {
     }, [offset, limit, search, check, filterByStatus])
 
     return (
-        <section
-            className="container mx-auto px-4 py-8"
-
-        >
-
-            {search}
-            <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            >
+        <section className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     data.map((item, index) => (
                         <Card key={index} item={item} />
                     ))
                 }
+
             </div>
 
+            {
+                !loading && data.length === 0 && (
+                    <div className="flex justify-center items-center h-40 md:h-64 lg:h-96">
+                        <p className="text-2xl text-gray-500 text-center">No data found</p>
+                    </div>
+                )
+            }
             <nav
-                className="flex items-center justify-center mt-8"
-            >
+                className="flex items-center justify-center mt-8">
                 <ul className="flex items-center -space-x-px h-10 text-base">
                     <li>
                         <p
@@ -134,15 +134,5 @@ export default function CardSection() {
     )
 }
 
-const style = `flex items-center justify-center px-4 h-10 leading-tight 
-text-primary bg-white border
- border-gray-300
-  hover:text-[#fff]
-   hover:bg-primary cursor-pointer
-   text-[14px] font-normal`
-const styleActive = `flex items-center justify-center px-4 h-10 leading-tight 
-text-primary bg-white border
- border-gray-300
-  text-[#fff]
-   bg-primary
-   text-[14px] font-normal`
+const style = `flex items-center justify-center px-4 h-10 leading-tight text-primary bg-white border border-gray-300  hover:text-[#fff] hover:bg-primary cursor-pointer  text-[14px] font-normal`
+const styleActive = `flex items-center justify-center px-4 h-10 leading-tight  bg-white border border-gray-300  text-[#fff]   bg-primary   text-[14px] font-normal`
