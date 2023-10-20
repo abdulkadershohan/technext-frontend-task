@@ -3,7 +3,7 @@ import { Card } from "src/components";
 import { filterSearchContext } from "src/context/filterSearchContext";
 const BASE_URL = 'https://api.spacexdata.com/v3/launches'
 export default function CardSection() {
-    const { search, check } = React.useContext(filterSearchContext) as any
+    const { search, check, filterByStatus } = React.useContext(filterSearchContext) as any
 
     const [offset, setOffset] = React.useState(1)
     const [limit, setLimit] = React.useState(9)
@@ -20,6 +20,9 @@ export default function CardSection() {
         if (check) {
             query += `&upcoming=true`
         }
+        if (filterByStatus !== "") {
+            query += `&launch_success=${filterByStatus}`
+        }
         console.log(query)
         try {
             fetch(`${BASE_URL}${query}`)
@@ -33,13 +36,14 @@ export default function CardSection() {
             console.log(error)
             setData([])
         }
-    }, [offset, limit, search, check])
+    }, [offset, limit, search, check, filterByStatus])
 
     return (
         <section
             className="container mx-auto px-4 py-8"
 
         >
+
             {search}
             <div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"

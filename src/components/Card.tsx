@@ -42,8 +42,8 @@ export default function Card({ item }: ICard) {
                     className='text-gray-600 font-medium leading-5 text-base'
                 >Launch Status:</p>
                 <p
-                    className={`text-white font-bold leading-3 text-sm ${launch_success ? ' bg-danger' : 'bg-success'} rounded-[4px] px-3 py-1`}
-                >{launch_success ? 'failed' : "success"}</p>
+                    className={`text-white font-bold leading-3 text-sm ${launch_success ? 'bg-success' : ' bg-danger'} rounded-[4px] px-3 py-1`}
+                >{launch_success ? "success " : 'failed'}</p>
             </div>
         </div>
     )

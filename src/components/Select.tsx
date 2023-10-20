@@ -15,7 +15,7 @@ export default function Select({ data, onChange, placeholder, value }: ISelect) 
                 value={value}
                 onChange={onChange}
             >
-                <option className="text-body text-base font-normal">{placeholder}</option>
+                <option value={''} className="text-body text-base font-normal">{placeholder}</option>
 
                 {
                     data?.map((item, index) => {

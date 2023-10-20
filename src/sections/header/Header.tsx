@@ -5,11 +5,20 @@ import { filterByDateSelect, selectStatusData } from 'src/demo-data/filter';
 import { home } from "src/demo-data/home";
 
 export default function Header() {
-    const { check, setCheck } = React.useContext(filterSearchContext) as any
-
-    // const [check, setCheck] = useState(false)
+    const { check, setCheck, setFilterByStatus, filterByStatus } = React.useContext(filterSearchContext) as any
+    const [status, setStatus] = useState('')
     const [filterByDate, setFilterByDate] = useState('')
-    const [filterByStatus, setFilterByStatus] = useState('')
+    React.useEffect(() => {
+        if (status === 'success') {
+            setFilterByStatus(true)
+        }
+        else if (status === 'failure') {
+            setFilterByStatus(false)
+        }
+        else {
+            setFilterByStatus('')
+        }
+    }, [status, setFilterByStatus])
     return (
         <section
             className="container mx-auto px-4 py-8"
@@ -64,9 +73,8 @@ export default function Header() {
                             data={selectStatusData}
 
                             placeholder="By Launch Status"
-                            value={filterByStatus}
-                            onChange={(e: any) => setFilterByStatus(e.target.value)}
-
+                            value={status}
+                            onChange={(e: any) => setStatus(e.target.value)}
 
                         />
                     </div>
