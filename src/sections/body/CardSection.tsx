@@ -35,6 +35,7 @@ export default function CardSection() {
         catch (error) {
             console.log(error)
             setData([])
+            setLoading(false)
         }
     }, [offset, limit, search, check, filterByStatus])
 
