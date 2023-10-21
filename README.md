@@ -1,8 +1,13 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project live at [https://technext-frontend-task.netlify.app/](https://technext-frontend-task.netlify.app/)
 
 ## Available Scripts
+
+To install the packages, you can run:
+
+### `npm install` or `yarn install`
 
 In the project directory, you can run:
 
