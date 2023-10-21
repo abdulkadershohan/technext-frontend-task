@@ -23,7 +23,7 @@ export default function CardSection() {
         if (filterByStatus !== "") {
             query += `&launch_success=${filterByStatus}`
         }
-        console.log(query)
+        // console.log(query)
         try {
             fetch(`${BASE_URL}${query}`)
                 .then(res => res.json())
